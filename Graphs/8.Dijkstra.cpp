@@ -37,19 +37,25 @@ int main()
 {
 
     vector<vector<int>> graph(4, vector<int>(4, 0));
-    graph[0][1] = 5;
-    graph[1][0] = 5;
-    graph[1][3] = 15;
-    graph[3][1] = 15;
+    // graph[0][1] = 5;
+    // graph[1][0] = 5;
+    // graph[1][3] = 15;
+    // graph[3][1] = 15;
 
-    graph[1][2] = 10;
-    graph[2][1] = 10;
+    // graph[1][2] = 10;
+    // graph[2][1] = 10;
 
-    graph[2][3] = 20;
-    graph[3][2] = 20;
+    // graph[2][3] = 20;
+    // graph[3][2] = 20;
 
-    graph[0][2] = 8;
-    graph[2][0] = 8;
+    // graph[0][2] = 8;
+    // graph[2][0] = 8;
+
+    graph[0][1] = 1;
+    graph[1][3] = 2;
+    graph[2][3] = 3;
+    graph[1][2] = -8;
+    graph[0][2] = 4;
 
     dijkstra(graph, 4);
 
