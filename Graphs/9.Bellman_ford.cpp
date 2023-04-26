@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+ #include <bits/stdc++.h>
 using namespace std;
 int bell_man_ford(vector<vector<int>> &graph, int src, int vertices)
 {
