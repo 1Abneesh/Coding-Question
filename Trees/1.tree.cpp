@@ -74,6 +74,38 @@ void dfs_post(Node *root)
     dfs_post(root->right);
     cout << root->val << " ";
 }
+void df_preo_order_Rec(Node* root){
+    stack<Node*> st;
+    st.push(root);
+    while(!st.empty()){
+        Node* ty = st.top();
+        st.pop();
+        cout<<ty->val<<" ";
+        if(ty->right!=NULL){
+            st.push(ty->right);
+        }
+        if(ty->left!=NULL){
+            st.push(ty->left);
+        }
+    }
+}
+void dfs_inorder_iterative(Node* root){
+    stack<Node*> st1;
+    Node* cur = root;
+    while(cur != NULL || !st1.empty()){
+        if(cur != NULL){
+            st1.push(cur);
+            cur = cur->left;
+        }
+        else{
+            cur = st1.top();
+            st1.pop();
+            cout << cur->val << " ";
+            cur = cur->right;
+        }
+    }
+}
+
 
 Node *create()
 {
@@ -91,15 +123,36 @@ Node *create()
     root->right = create();
     return root;
 }
+int chil_tree(Node* root){
+    if(root == NULL){
+        return -1;
+    }
+
+   int left= chil_tree(root->left);
+   int right= chil_tree(root->right);
+   if(left !=-1 and right != -1){
+            root->val = left + right;
+   }
+   else if(left !=-1){
+        root->val  = left;
+   }
+   else if(right !=-1){
+        root->val  = right;
+   }
+   return root->val;
+}
+
 int main()
 {
     Node *root = create();
+    chil_tree(root);
+
     bfs(root);
-    cout << "Inorder\n";
-    dfs_in(root);
-    cout << "\nPreorder\n";
-    dfs_pre(root);
-    cout << "\npostorder\n";
-    dfs_post(root);
+    // cout << "Inorder\n";
+    // dfs_inorder_iterative(root);
+    // cout << "\nPreorder\n";
+    // df_preo_order_Rec(root);
+    // cout << "\npostorder\n";
+    // dfs_post(root);
     return 0;
 }
