@@ -1,0 +1,12 @@
+In modern operating systems, such as Windows, there are typically two distinct modes of operation: user mode and kernel mode. These modes define different levels of privileges and access to system resources.
+
+1. User Mode:
+User mode is the mode in which most applications and processes run. Programs running in user mode have limited access to system resources and are isolated from the underlying hardware and critical system functions. User mode processes cannot directly access hardware devices or perform privileged operations. They rely on the operating system's services and APIs to interact with hardware and access system resources.
+
+2. Kernel Mode:
+Kernel mode is a privileged mode that provides direct access to the system's hardware and critical resources. The kernel is the core component of an operating system and runs in kernel mode. It has elevated privileges and can perform privileged operations like managing memory, handling hardware interrupts, and controlling system resources. The kernel mode provides a layer of protection and isolation between user mode processes and the underlying hardware.
+
+Interaction between User Mode and Kernel Mode:
+When a user mode process needs to access system resources or perform privileged operations, it makes a request to the operating system through a system call. The system call is a mechanism that allows user mode processes to switch from user mode to kernel mode temporarily. In kernel mode, the operating system carries out the requested operation on behalf of the user mode process, and once done, control is returned to the user mode process.
+
+The transition from user mode to kernel mode is a controlled and secure process. The operating system validates the request, checks permissions, and ensures that the requested operation is allowed. The separation between user mode and kernel mode helps protect the system's stability, security, and resources, as direct access to hardware and critical functions is restricted to the trusted kernel mode.
