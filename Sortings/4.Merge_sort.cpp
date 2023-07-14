@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void merge(int *a,int l,int mid,int r){
+void merge(int *a,int l,int mid,int r){ 
     int low = l;
     int right = mid+1;
     vector<int> arr;
