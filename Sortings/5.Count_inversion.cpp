@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void merge(int *a, int l, int mid, int r)
+int merge_count(int *a, int l, int mid, int r)
 {
     int low = l;
     int right = mid + 1;
     vector<int> arr;
+    int res = 0;
     while (low <= mid and right <= r)
     {
         if (a[low] <= a[right])
@@ -16,7 +17,11 @@ void merge(int *a, int l, int mid, int r)
         else
         {
             arr.push_back(a[right]);
+
+            // key step
+            res += mid - low+1;
             right++;
+            
         }
     }
     while (low <= mid)
@@ -35,24 +40,27 @@ void merge(int *a, int l, int mid, int r)
     {
         a[i] = arr[i - l];
     }
+    return res;
 }
 
-void merge_sort(int *a, int l, int r)
+int merge_sort(int *a, int l, int r)
 {
     if (l >= r)
     {
-        return;
+        return 0;
     }
+    int res = 0;
     int mid = (l + r) / 2;
-    merge_sort(a, l, mid);
-    merge_sort(a, mid + 1, r);
-    merge(a, l, mid, r);
+    res += merge_sort(a, l, mid);
+    res += merge_sort(a, mid + 1, r);
+    res += merge_count(a, l, mid, r);
+    return res;
 }
 
 int main()
 {
-    int a[] = {12, 34, 423, 1, 65, 33, 3};
-    merge_sort(a, 0, 6);
+    int a[] = {7,2,3,4,5,6,1};
+    cout<<merge_sort(a, 0, 6)<<"\n";
     for (int i = 0; i < 7; i++)
     {
         cout << a[i] << " ";
