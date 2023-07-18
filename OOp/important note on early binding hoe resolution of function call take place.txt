@@ -1,0 +1,9 @@
+In C++, when a function is not declared as `virtual`, the function call is resolved based on the static type of the pointer or reference, rather than the dynamic type of the object at runtime. This is known as early binding or static binding.
+
+In your original code without the `virtual` keyword, the `show()` function in the `Base` class is called because the pointer `b` is of type `Base*`. At compile-time, the compiler determines the function to be called based on the static type of the pointer, which is `Base*`. This is resolved during compilation, and the `Base` class's `show()` function is bound to the call.
+
+In order to achieve late binding or dynamic binding, where the function call is resolved based on the actual object's type at runtime, you need to declare the function as `virtual`. The `virtual` keyword tells the compiler to defer the resolution of the function call until runtime, considering the dynamic type of the object.
+
+By making the `show()` function `virtual` in the `Base` class, as shown in the modified code in the previous response, you enable polymorphism and allow the function to be overridden in the derived class. This enables late binding, and during the function call `b->show()`, the actual object's type (which is `Derived` in this case) determines which version of the function to call.
+
+In summary, making the function `virtual` allows the function call to be dynamically bound based on the object's dynamic type, whereas not declaring the function as `virtual` results in static binding, where the function call is determined based on the static type of the pointer or reference.
