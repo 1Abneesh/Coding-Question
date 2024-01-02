@@ -9,23 +9,23 @@ void func(string s,string ds,vector<string> &ans,int indx){
     }
 }
 
-void func_dfs(string s, string ds,vector<string> &ans,int indx){
-    if(indx==s.size()){
-        ans.push_back(ds);
-        return ;
-    }
-    string ds_1 = ds;
-    string ds_2 = ds;
-    ds_1.push_back(s[indx]);
-    func_dfs(s,ds_1,ans,indx+1);
-    func_dfs(s,ds_2,ans,indx+1);
+// void func_dfs(string s, string ds,vector<string> &ans,int indx){
+//     if(indx==s.size()){
+//         ans.push_back(ds);
+//         return ;
+//     }
+//     string ds_1 = ds;
+//     string ds_2 = ds;
+//     ds_1.push_back(s[indx]);
+//     func_dfs(s,ds_1,ans,indx+1);
+//     func_dfs(s,ds_2,ans,indx+1);
 
-}
+// }
 
 
 
 int main(){
-    string s = "Abne";
+    string s = "1101";
     string ds= "";
     vector<string> ans;
     func(s,ds,ans,0);

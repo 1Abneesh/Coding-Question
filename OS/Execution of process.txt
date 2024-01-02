@@ -1,0 +1,13 @@
+Yes, you are correct in your understanding. The process of a program execution typically involves these key steps:
+
+1. **Process Creation and Memory Allocation**: When a program is executed, the operating system creates a new process for it. This process is assigned its own isolated memory space, which includes code, data, stack, and heap segments. This memory allocation can either be in the form of physical memory or virtual memory (with the help of memory management techniques like paging or segmentation).
+
+2. **Ready Queue and Scheduling**: Once the process is created and its memory is allocated, it enters the "ready" state and is added to the Ready Queue. The Ready Queue holds all the processes that are ready for execution but are waiting for CPU time. The CPU scheduler is responsible for selecting a process from the Ready Queue and allocating the CPU to it.
+
+3. **Process Execution**: When the CPU scheduler selects a process from the Ready Queue, the selected process is dispatched to a CPU core for execution. The CPU starts executing the instructions of the process, and the process runs until its time slice expires (in preemptive scheduling) or until it voluntarily releases the CPU (in cooperative scheduling).
+
+4. **Context Switching**: If the running process gets interrupted (e.g., due to a hardware interrupt, I/O request, or its time slice expiring), the CPU scheduler performs a context switch. During a context switch, the current process's state is saved, and the CPU switches to executing another process by restoring its saved state from memory. This allows the CPU to seamlessly switch between different processes and give the illusion of concurrent execution.
+
+5. **Process Termination**: When a process completes its execution or explicitly requests termination, it moves out of the Ready Queue and is eventually removed from memory. The operating system releases the memory and other resources allocated to the process.
+
+Throughout this process, the operating system manages the execution and scheduling of multiple processes, ensuring fair allocation of CPU time, memory protection, and resource sharing. The Ready Queue plays a crucial role in holding the processes that are ready for execution, waiting to be selected by the CPU scheduler to run on the CPU.
